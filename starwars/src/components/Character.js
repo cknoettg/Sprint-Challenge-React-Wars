@@ -26,9 +26,9 @@ import styled from 'styled-components';
 // last location
 // div
 
-const Character = props => {
+const Character = () => {
 
-    const [character, setCharacter] = useState(props.character);
+    const [character, setCharacter] = useState([]);
 
     //axios get, useEffect
     useEffect(() => {
@@ -48,10 +48,7 @@ const Character = props => {
             {/*character.map(element => {
                 return {element};
             })*/}
-
-            {/* initial test */}
-            {console.log(props.image)}
-            <Image imag={props.image} />
+            <Image imag={character.image} />
             
         </div>
     )
