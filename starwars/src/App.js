@@ -2,6 +2,7 @@ import React, { useState , useEffect }  from 'react';
 import './App.css';
 import axios from 'axios';
 import Character from './components/Character';
+import styled from 'styled-components';
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -17,7 +18,7 @@ const App = () => {
 
   //useState
   const [card, setCard] = useState([]);
-  
+
   //axios get, useEffect
   useEffect(() => {
     axios.get("https://rickandmortyapi.com/api/character")
