@@ -15,14 +15,6 @@ const App = () => {
   //id, name, status, species, type, gender, origin,
   // location, image, epsiode, url, created
 
-  //useState
-  const [card, setCard] = useState([]);
-
-  
-
-  //we have to run our console.log test here, after the axios call
-  //console.log(card.image);
-
   return (
     <div className="App">
       <h1 className="Header">Rick and Morty Rule!</h1>

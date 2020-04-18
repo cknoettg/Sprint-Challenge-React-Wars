@@ -8,9 +8,6 @@ import styled from 'styled-components';
   //id, name, status, species, type, gender, origin,
   // location, image, epsiode, url, created
 
-//for this project, we are going to lump elements together
-// - can create separate js files for them in the future, if needed
-
 //basic structure is going to be
 // div
 // character's img
@@ -28,11 +25,7 @@ import styled from 'styled-components';
 
 const Character = () => {
 
-    //grab by id, set boundary
-    //const [ids, setIds] = useState(id);
-
-    const [characters, setCharacter] = useState([]);
-    
+    const [characters, setCharacter] = useState([]);    
 
     //axios get, useEffect
     useEffect(() => {

@@ -31,10 +31,6 @@ const Main = props => {
     return (
       <MainDiv>
           <DivColor class="top">
-                {/* we will revisit our map later - perhaps it goes in app */}
-                {/*character.map(element => {
-                    return {element};
-                })*/}
                 <Image imag={props.data.image} />
                 <NameColor><Name name={props.data.name}/></NameColor>
             </DivColor>
