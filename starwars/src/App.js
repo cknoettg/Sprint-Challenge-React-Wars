@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState , useEffect }  from 'react';
 import './App.css';
 import axios from 'axios';
 import Character from './components/Character';
@@ -15,7 +15,21 @@ const App = () => {
   //id, name, status, species, type, gender, origin,
   // location, image, epsiode, url, created
 
-  //axios get
+  //useState
+  const [card, setCard] = useState([]);
+  
+  //axios get, useEffect
+  useEffect(() => {
+    axios.get("https://rickandmortyapi.com/api/character")
+    .then(response => {
+        console.log(response.data);
+        setCard(response.data);
+    })
+    .catch(error => {
+        console.log("Error retrieving data");
+    })
+}, []);
+
 
   return (
     <div className="App">
