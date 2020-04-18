@@ -29,7 +29,7 @@ const DivColor = styled.div`
 const Main = props => {
 
     return (
-      <div>
+      <MainDiv>
           <DivColor class="top">
                 {/* we will revisit our map later - perhaps it goes in app */}
                 {/*character.map(element => {
@@ -46,7 +46,7 @@ const Main = props => {
                 "Gender:" {character.gender}
                 "Origin:" {character.origin} */}
             </DivColor>
-      </div>
+      </MainDiv>
     );
 }
 
