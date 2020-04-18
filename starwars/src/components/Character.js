@@ -1,5 +1,7 @@
 // Write your Character component here
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Image from "./Image";
+import axios from 'axios';
 import styled from 'styled-components';
 
 //https://rickandmortyapi.com/api/character/?name=rick&status=alive
@@ -28,15 +30,29 @@ const Character = props => {
 
     const [character, setCharacter] = useState(props.character);
 
+    //axios get, useEffect
+    useEffect(() => {
+        axios.get("https://rickandmortyapi.com/api/character/2")
+        .then(response => {
+            console.log(response.data);
+            setCharacter(response.data);
+        })
+        .catch(error => {
+            console.log("Error retrieving data");
+        })
+    }, []);
+
     return (
         <div>
             {/* we will revisit our map later - perhaps it goes in app */}
-            {/* {Character.map(element => {
-                return <Character character={element} />;
-            })} */}
+            {/*character.map(element => {
+                return {element};
+            })*/}
 
             {/* initial test */}
-            <h1>Rick and Morty Rule!</h1>
+            {console.log(props.image)}
+            <Image imag={props.image} />
+            
         </div>
     )
 }

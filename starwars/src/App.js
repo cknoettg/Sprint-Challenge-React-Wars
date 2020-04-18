@@ -1,6 +1,5 @@
 import React, { useState , useEffect }  from 'react';
 import './App.css';
-import axios from 'axios';
 import Character from './components/Character';
 import styled from 'styled-components';
 
@@ -19,22 +18,14 @@ const App = () => {
   //useState
   const [card, setCard] = useState([]);
 
-  //axios get, useEffect
-  useEffect(() => {
-    axios.get("https://rickandmortyapi.com/api/character")
-    .then(response => {
-        console.log(response.data);
-        setCard(response.data);
-    })
-    .catch(error => {
-        console.log("Error retrieving data");
-    })
-}, []);
+  
 
+  //we have to run our console.log test here, after the axios call
+  //console.log(card.image);
 
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
+      <h1 className="Header">Rick and Morty Rule!</h1>
       <Character></Character>
     </div>
   );
