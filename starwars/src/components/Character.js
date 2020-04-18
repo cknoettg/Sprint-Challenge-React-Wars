@@ -1,8 +1,6 @@
 // Write your Character component here
 import React, { useEffect, useState } from 'react';
-import Image from "./Image";
-import Name from "./Name";
-import Id from "./Id"
+import Card from "./Main";
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -28,39 +26,20 @@ import styled from 'styled-components';
 // last location
 // div
 
-const NameColor = styled.h3`
-    background-color: grey;
-    width: 25%;
-    margin: 0 auto;
-`;
-
-const PColor = styled.p`
-    background-color: grey;
-    width: 25%;
-    margin: 0 auto;
-`;
-
-const DivColor = styled.div`
-    background-color: green;
-    width: 25%;
-    margin: 0 auto;
-`;
-
 const Character = () => {
 
     //grab by id, set boundary
-    //const [ids, setIds] = useState([]);
+    //const [ids, setIds] = useState(id);
 
-    const [character, setCharacter] = useState([]);
+    const [characters, setCharacter] = useState([]);
     
 
     //axios get, useEffect
     useEffect(() => {
-        //axios.get(`https://rickandmortyapi.com/api/character/${character.id}`)
-        axios.get(`https://rickandmortyapi.com/api/character/2`)
+        axios.get(`https://rickandmortyapi.com/api/character`)
         .then(response => {
-            console.log(response.data);
-            setCharacter(response.data);
+            console.log(response.data.results);
+            setCharacter(response.data.results);
         })
         .catch(error => {
             console.log("Error retrieving data");
@@ -68,21 +47,9 @@ const Character = () => {
     }, []);
 
     return ( 
-        [<DivColor><div class="top">
-            {/* we will revisit our map later - perhaps it goes in app */}
-            {/*character.map(element => {
-                return {element};
-            })*/}
-            <Image imag={character.image} />
-            <NameColor><Name name={character.name}/></NameColor>
-        </div></DivColor>,
-        <DivColor><div class="bottom">
-            <PColor><Id id={character.id} /></PColor>
-            <PColor><p>Status: {character.status}</p></PColor>
-            {/* "Species:" {character.species}
-            "Gender:" {character.gender}
-            "Origin:" {character.origin} */}
-        </div></DivColor>]
+        <div>
+            {characters.map(character => <Card data={character}/>)}
+        </div>
     )
 }
 
